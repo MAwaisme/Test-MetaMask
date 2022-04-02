@@ -1,0 +1,9 @@
+<div class="text-center mt-3">
+  <p *ngIf="!isMetaMaskAvailable">Meta mask is not available.</p>
+  <button class="btn btn-success" [disabled]="!isMetaMaskAvailable||isConnecting" *ngIf="!isAccountConnected"
+    (click)="Enable()">Connect</button>
+  <h3 [class.text-success]="isAccountConnected" [class.text-danger]="!isAccountConnected">Status:
+    {{isAccountConnected?'Connected':'Disconnected'}}</h3>
+  <h5 class="text-info">Account: {{accountId}}</h5>
+  <router-outlet></router-outlet>
+</div>
